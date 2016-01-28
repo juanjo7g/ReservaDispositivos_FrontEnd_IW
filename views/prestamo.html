@@ -1,0 +1,32 @@
+
+<div layout="row" layout-align="left left">
+	<div flex="30">
+		<md-list> <md-subheader class="md-no-sticky">
+
+		<md-input-container layout="column" layout-align="center center">
+		<label>Busqueda</label> <input type="text" ng-model="busqueda">
+		</md-input-container> </md-subheader> <md-list-item class="md-3-line md-whiteframe-z1"
+			ng-repeat="dispositivo in dispositivos | filter:busqueda"
+			flex-sm="90" ng-click="seleccionarDispositivo(dispositivo)">
+		<img ng-src="./assets/user.png" class="md-avatar"
+			alt="{{dispositivo.idDispositivo}}" />
+		<div class="md-list-item-text" layout="column"
+			layout-align="left left">
+			<h3>{{dispositivo.idDispositivo}}</h3>
+			<h4>Stock: {{dispositivo.stock}}</h4>
+			<p>Disponibles: {{dispositivo.disponibles}}</p>
+		</div>
+		</md-list-item> </md-list>
+	</div>
+
+	<div flex="70">
+		<div ng-show="dispositivoSeleccionado">
+			<h1>{{dispositivoSeleccionado.idDispositivo}}</h1>
+			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='1'">Smartphone</h2>
+			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='2'">Mouse</h2>
+			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='3'">Dron</h2>
+			<h3>{{dispositivoSeleccionado.stock}} en nuestro inventario</h3>
+			<h3>{{dispositivoSeleccionado.disponibles}} unidades disponibles</h3>
+		</div>
+	</div>
+</div>

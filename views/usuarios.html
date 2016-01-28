@@ -1,0 +1,76 @@
+<div layout="row" layout-align="left left">
+
+	<div flex="50">
+		<md-list> <md-subheader class="md-no-sticky">
+
+		<md-input-container layout="column" layout-align="center center">
+		<label>Busqueda</label> <input type="text" ng-model="busqueda">
+		</md-input-container> </md-subheader> <md-list-item class="md-3-line md-whiteframe-z1"
+			ng-repeat="usuario in usuarios | filter:busqueda" flex-sm="90">
+		<img ng-src="./assets/user.png" class="md-avatar"
+			alt="{{usuario.username}}" />
+		<div class="md-list-item-text" layout="column"
+			layout-align="left left">
+			<h2>{{usuario.username}}</h2>
+			<h3>{{usuario.nombre}} {{usuario.apellido}}
+				({{usuario.tipoRol}})</h3>
+			<h4>{{usuario.tipoDocumento}} {{usuario.nroDocumento}}</h4>
+			<p>Email: {{usuario.correo}}</p>
+			<p>Celular: {{usuario.celular}}</p>
+			<p>Telefono: {{usuario.telefono}}</p>
+		</div>
+
+		</md-list-item> </md-list>
+	</div>
+
+
+
+	<div flex="40" flex-offset="5">
+		<br> <br>
+		<div layout="column" layout-align="center center"
+			class="md-whiteframe-z2">
+
+			<h1>Nuevo Usuario</h1>
+			<form name="nuevoUsuario" id="form" ng-submit="crearUsuario(nuevoUsuario)">
+				<md-content class="autoScroll"> <md-input-container
+					layout="row" layout-align="center center"> <label>Nombres</label>
+				<input type="text" ng-model="nuevoUsuario.nombre"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Apellidos</label>
+				<input type="text" ng-model="nuevoUsuario.apellido"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Tipo
+					de documento</label> <input type="text"
+					ng-model="nuevoUsuario.tipoDocumento"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Numero
+					de documento</label> <input type="text"
+					ng-model="nuevoUsuario.nroDocumento"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Email</label>
+				<input type="email" ng-model="nuevoUsuario.correo"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Rol
+					(1->Admin,2->Est)</label> <input type="text" ng-model="nuevoUsuario.idRol">
+				</md-input-container> <md-input-container layout="row" layout-align="center center">
+				<label>Celular</label> <input type="text"
+					ng-model="nuevoUsuario.celular"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Telefono</label>
+				<input type="text" ng-model="nuevoUsuario.telefono"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Nombre
+					de usuario</label> <input type="text" ng-model="nuevoUsuario.username">
+				</md-input-container> <md-input-container layout="row" layout-align="center center">
+				<label>Contraseña</label> <input type="password"
+					ng-model="nuevoUsuario.password"> </md-input-container> <md-input-container
+					layout="row" layout-align="center center"> <label>Repita
+					la contraseña</label> <input type="password"
+					ng-model="nuevoUsuario.passwordConfirmacion"> </md-input-container> 
+					
+				
+					<!-- <md-input-container layout="column" layout-align="center center">
+      <input type="submit" class="md-primary" ng-model="nuevoUsuario.email" value="Registrar">
+    </md-input-container> --> 
+    
+    <md-button class="md-raised md-primary"
+					type="submit">Registrar usuario</md-button> </md-content>
+			</form>
+
+
+		</div>
+	</div>
+</div>

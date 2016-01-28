@@ -1,0 +1,23 @@
+{
+  "name": "reserva-dispositivos",
+  "authors": [
+    "James Garzon",
+    "Jose Martinez",
+    "Sergio Giraldo"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "Universidad de Antioquia",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-material": "~1.0.3"
+  }
+}

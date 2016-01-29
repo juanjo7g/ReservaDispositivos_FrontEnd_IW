@@ -24,87 +24,34 @@
 <script src="./js/services/dispositivosService.js"></script>
 
 
-  <!-- Container #1 (see wireframe) -->
-  <md-toolbar layout="column" >
-    <h2 class="text-center">Reserva de dispositivos</h2>
-    <!-- <h2>Universidad de Antioquia</h2> -->
-  </md-toolbar>
+<!-- Container #1 (see wireframe) -->
+<md-toolbar layout="row">
+  <h2 class="text-center">Reserva de dispositivos</h2>
+</md-toolbar>
 
-  <!-- Container #2 -->
-  <div flex layout="row">
 
-      <!-- Container #3 -->
-       <md-sidenav md-is-locked-open="false">
+<div flex layout="row" ng-view>
 
-        <!-- <md-input-container>
-          <label>Buscar</label>
-          <input type="text" ng-model="busqueda">
-        </md-input-container> -->
 
-        <!-- <md-list>
-          <md-list-item ng-repeat="u in usuarios | filter:busqueda">
-              <md-button ng-click="seleccionarUsuario(u)" ng-class="avatar">
-                <md-icon md-svg-icon="{{u.avatar}}" class="avatar"></md-icon>
-                {{u.name}}
-              </md-button>
-          </md-list-item>
-        </md-list>
-        -->
+ </div>
+
+
+
+
+
+  <!-- <div flex layout="row"> -->
+
+
+       <!-- <md-sidenav md-is-locked-open="false">
+
       </md-sidenav>
 
-      <!-- Container #4 -->
       <md-content flex id="content" ng-view>
 
-        <!-- <md-button ng-click="openBottomSheet()" class="share" md-svg-icon="share">
-         Open a Bottom Sheet!
-       </md-button> -->
-            <!-- <md-icon md-svg-icon="{{usuarioSeleccionado.avatar}}" class="avatar"></md-icon>
-          <md-button class="share" md-no-ink ng-click="openBottomSheet()">
-              <md-icon md-svg-icon="share"></md-icon>
-            </md-button>
-            <h2>{{usuarioSeleccionado.name}}</h2>
-            <p>{{usuarioSeleccionado.content}}</p>
-
-            <md-button class="md-primary">Click me</md-button>
-            <md-button class="md-accent">or maybe me</md-button>
-            <md-button class="md-warn">Careful</md-button> -->
+          </md-content> -->
 
 
-            <!-- <md-input-container>
-              <label>Buscar</label>
-              <input type="text" ng-model="busqueda">
-            </md-input-container> -->
-
-
-<!-- ******************************* -->
-<!-- <div layout="column" layout-align="center center" class="md-whiteframe-z2" >
-
-  <h1>Iniciar sesión</h1>
-  <md-icon md-svg-icon="./assets/svg/avatar-1.svg" class="avatar"></md-icon>
-
-
-  <form>
-    <md-input-container layout="column" layout-align="center center" >
-      <label>Usuario</label>
-      <input type="text" ng-model="usuario.nombre">
-    </md-input-container>
-
-    <md-input-container layout="column" layout-align="center center">
-      <label>Contraseña</label>
-      <input type="password" ng-model="usuario.nombre">
-    </md-input-container>
-
-			<md-button class="md-raised md-primary"layout-align="center center">Iniciar sesión</md-button>
-
-  </form>
-
-
-</div> -->
-
-<!-- **************************** -->
-          </md-content>
-
-  </div>
+  <!-- </div> -->
 
 </body>
 </html>

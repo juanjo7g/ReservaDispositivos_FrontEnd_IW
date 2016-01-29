@@ -1,32 +1,68 @@
+<md-sidenav md-is-locked-open="true" md-component-id="left" class="md-whiteframe-z2">
 
-<div layout="row" layout-align="left left">
-	<div flex="30">
-		<md-list> <md-subheader class="md-no-sticky">
+	<md-list>
+		<md-subheader class="md-no-sticky">
 
-		<md-input-container layout="column" layout-align="center center">
-		<label>Busqueda</label> <input type="text" ng-model="busqueda">
-		</md-input-container> </md-subheader> <md-list-item class="md-3-line md-whiteframe-z1"
-			ng-repeat="dispositivo in dispositivos | filter:busqueda"
-			flex-sm="90" ng-click="seleccionarDispositivo(dispositivo)">
-		<img ng-src="./assets/user.png" class="md-avatar"
+			<md-input-container>
+				<label>Busqueda</label> <input type="text" ng-model="busqueda">
+			</md-input-container>
+
+		</md-subheader>
+
+		<md-list-item class="md-3-line md-whiteframe-z1"
+		ng-repeat="dispositivo in dispositivos | filter:busqueda"
+		flex-sm="90" ng-click="seleccionarDispositivo(dispositivo)">
+
+			<img ng-src="./assets/user.png" class="md-avatar"
 			alt="{{dispositivo.idDispositivo}}" />
-		<div class="md-list-item-text" layout="column"
-			layout-align="left left">
-			<h3>{{dispositivo.idDispositivo}}</h3>
-			<h4>Stock: {{dispositivo.stock}}</h4>
-			<p>Disponibles: {{dispositivo.disponibles}}</p>
-		</div>
-		</md-list-item> </md-list>
-	</div>
+			<div class="md-list-item-text" >
+				<h3>{{dispositivo.idDispositivo}}</h3>
+				<h4>Stock: {{dispositivo.stock}}</h4>
+				<p>Disponibles: {{dispositivo.disponibles}}</p>
+			</div>
 
-	<div flex="70">
-		<div ng-show="dispositivoSeleccionado">
-			<h1>{{dispositivoSeleccionado.idDispositivo}}</h1>
-			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='1'">Smartphone</h2>
-			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='2'">Mouse</h2>
-			<h2 ng-show="dispositivoSeleccionado.idTipoDispositivo=='3'">Dron</h2>
-			<h3>{{dispositivoSeleccionado.stock}} en nuestro inventario</h3>
-			<h3>{{dispositivoSeleccionado.disponibles}} unidades disponibles</h3>
+		</md-list-item>
+
+	</md-list>
+
+</md-sidenav>
+
+
+<md-content flex id="content" ng-show="dispositivoSeleccionado">
+		<h1 class="md-display-3" style="color: #3F51B5;">{{dispositivoSeleccionado.idDispositivo}}</h1>
+		<div layout="row">
+				<div flex="50">
+					<h2 class="md-display-1" style ="color:#3F51B5" ng-show="dispositivoSeleccionado.idTipoDispositivo=='1'">Smartphone</h2>
+					<h2 class="md-display-1" style ="color:#3F51B5" ng-show="dispositivoSeleccionado.idTipoDispositivo=='2'">Mouse</h2>
+					<h2 class="md-display-1" style ="color:#3F51B5" ng-show="dispositivoSeleccionado.idTipoDispositivo=='3'">Dron</h2>
+					<h3> Disponibles:<span class="md-title" style ="color:#3F51B5"> {{dispositivoSeleccionado.disponibles}} unidades</span></h3>
+					<h3> Unidades en inventario: <span class="md-title" style ="color:#3F51B5"> {{dispositivoSeleccionado.stock}} unidades</span> </h3>
+				</div>
+				<div flex>
+					<form class="form" ng-submit="">
+
+						<div layout="row">
+							<div flex="50">
+								<h4>Inicio de Reserva</h4>
+								<md-datepicker ng-model="myDate" md-placeholder="ingresa una fecha"></md-datepicker>
+							</div>
+							<div flex="50">
+								<h4>Fin de Reserva</h4>
+								<md-datepicker ng-model="myDate" md-placeholder="ingresa una fecha"></md-datepicker>
+							</div>
+						</div>
+						<br><br><br>
+						<div layout="row" layout-align="center center">
+
+						</div>
+						<md-button class="md-raised md-primary"layout-align="center center" ng-click="autenticar(nombreUsuario, contrasena)">Reservar prestamo</md-button>
+
+					</form>
+				</div>
 		</div>
-	</div>
-</div>
+</md-content>
+
+<md-content flex id="content" ng-show="!dispositivoSeleccionado"  layout="column" layout-align="center center">
+	<h1 class="md-display-3" style="color: #3F51B5;">Modulo de prestamos</h1>
+	<h1 class="md-display-1">Por favor seleccione el dispositivo que desea reservar</h1>
+</md-content>

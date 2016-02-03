@@ -30,18 +30,17 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider,
 	});
 });
 
-
 app.run(function($rootScope, $cookies, $location) {
 	$rootScope.$on('$routeChangeStart', function() {
-		if(typeof($cookies.nombreUsuario) == 'undefined'){
+		if (typeof ($cookies.nombreUsuario) == 'undefined') {
 			$location.url('/login');
-		}else{
-			if($cookies.rolUsuario == '1'){
-				$location.url('/usuarios');
-			}else{
-				$location.url('/prestamo');
-			}
 		}
+
+		if ($cookies.rolUsuario == '1') {
+			$location.url('/usuarios');
+		} else if ($cookies.rolUsuario == '2') {
+			$location.url('/prestamo');
+		}
+
 	});
 });
-

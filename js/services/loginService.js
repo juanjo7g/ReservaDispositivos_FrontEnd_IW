@@ -1,3 +1,5 @@
+// Servicio que gestiona el inicio de sesion de los usuarios.
+
 app.service('usuario', function($http) {
 
 	this.autenticar = function(user, pws) {

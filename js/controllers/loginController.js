@@ -1,3 +1,6 @@
+
+// Controlador para la pagina de logueo.
+
 app.controller('loginCtrl', [
 		'$scope',
 		'$mdBottomSheet',
@@ -5,7 +8,7 @@ app.controller('loginCtrl', [
 		'usuario',
 		'$cookies',
 		function($scope, $mdBottomSheet, $location, usuario, $cookies) {
-
+//			Función para validar el nombre de usuario y la contraseña
 			$scope.autenticar = function() {
 				usuario.autenticar($scope.nombreUsuario, $scope.contrasena)
 						.success(function(data) {
@@ -14,6 +17,7 @@ app.controller('loginCtrl', [
 							} else {
 								$cookies.nombreUsuario = $scope.nombreUsuario;
 								$cookies.rolUsuario = data;
+								
 								if (data == '1') {
 									alert('Eres administrador');
 									$location.path("/usuarios");

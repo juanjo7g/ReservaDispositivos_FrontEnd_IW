@@ -1,3 +1,5 @@
+// Servicio que gestiona las transacciones sobre los usuarios del sistema.
+
 app
 		.service(
 				'usuarioService',
